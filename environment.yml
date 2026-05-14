@@ -1,0 +1,16 @@
+name: health-ml
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - statsmodels
+  - xlrd=1.2.0      
+  - openpyxl        
+  - jupyterlab
+  - ipykernel
+  - notebook
