@@ -10,7 +10,7 @@
 
 This project uses machine learning to predict **premature death rates** (Years of Potential Life Lost Rate - YPLL) across **2,961 U.S. counties** using the 2018 County Health Rankings dataset.
 
-The goal was to accurately predict health outcomes and understand which socioeconomic, behavioral, and environmental factors matter most.
+The goal was to predict health outcomes accurately and understand which socioeconomic, behavioral, and environmental factors matter most.
 
 **Best Model**: Random Forest (Test RMSE = 1,348.4 | R² = 0.691)
 
@@ -65,9 +65,9 @@ The goal was to accurately predict health outcomes and understand which socioeco
 | Lasso                    | 1473.4      | 0.631     | -           |
 | OLS Linear Regression    | 1474.5      | 0.631     | Baseline    |
 
-![Model Performance](figures/fig5_model_comparison.png)
+![Model Performance](fig5_model_comparison.png)
 
-![Feature Importance](figures/fig7_feature_importance.png)
+![Feature Importance](fig7_feature_importance.png)
 
 **Top Features (Random Forest Importance)**:
 1. **% Children in Poverty** — 44.4%
