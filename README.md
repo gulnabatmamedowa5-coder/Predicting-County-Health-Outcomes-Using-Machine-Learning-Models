@@ -1,4 +1,4 @@
-# Predicting-County-Health-Outcomes-Using-Machine-Learning-Models
+# Predicting County Health Outcomes Using Machine Learning
 
 **Author**: Gulnabat Mamedova  
 **Course**: Introduction to Statistical Machine Learning  
@@ -8,52 +8,38 @@
 
 ## Project Overview
 
-This project explores **why some U.S. counties have significantly higher premature death rates** than others by applying machine learning models to predict the **Years of Potential Life Lost (YPLL) Rate** using the 2018 County Health Rankings dataset.
+This project uses machine learning to predict **premature death rates** (Years of Potential Life Lost Rate - YPLL) across **2,961 U.S. counties** using the 2018 County Health Rankings dataset.
 
-After preprocessing and modeling 2,961 counties with 14 socioeconomic, behavioral, healthcare, and environmental features, **Random Forest** achieved the best performance, explaining **69.1%** of the variation in premature mortality.
+The goal was to accurately predict health outcomes and understand which socioeconomic, behavioral, and environmental factors matter most.
 
-**Key Finding**: **% Children in Poverty** is by far the strongest predictor of poor health outcomes.
+**Best Model**: Random Forest (Test RMSE = 1,348.4 | R² = 0.691)
 
-![Target Variable Distribution](figures/fig1_target_distribution.png)
-
----
-
-## Goals
-
-1. **Prediction**: Build accurate models to predict the county-level YPLL Rate.
-2. **Interpretation**: Identify which factors most strongly drive health disparities.
+**Key Finding**: **% Children in Poverty** is by far the strongest predictor of poor county health outcomes.
 
 ---
 
 ## Dataset
 
-- **Source**: [2018 County Health Rankings](https://www.countyhealthrankings.org/)
 - **File**: `2018 County Health Rankings Data`
-- **Samples**: 2,961 U.S. counties
-- **Target**: `YPLL_Rate` (Years of Potential Life Lost before age 75 per 100,000 population)
-
-### Selected Features (14)
-**Socioeconomic**: % Children in Poverty, Income Ratio, Graduation Rate, % Unemployed, % Single-Parent Households  
-**Healthcare**: % Uninsured, PCP Rate  
-**Health Behaviors**: % Smokers, % Obese, % Physically Inactive, % Excessive Drinking  
-**Environment**: Food Environment Index, Average Daily PM2.5, Violent Crime Rate
+- **Samples**: 2,961 counties
+- **Target Variable**: YPLL Rate (Years of Potential Life Lost before age 75 per 100,000)
 
 ---
 
-## Repository Files
+## Repository Contents
 
-| File / Folder                    | Description                              |
-|----------------------------------|------------------------------------------|
-| `2018 County Health Rankings Data` | Original dataset                       |
-| `Gulnabat_Mamedova...`           | Main Jupyter Notebook                    |
-| `environment`                    | Conda environment file                   |
-| `fig1_target_distribution`       | YPLL Rate distribution                   |
-| `fig2_correlations`              | Correlation analysis                     |
-| `fig3_heatmap`                   | Correlation heatmap                      |
-| `fig4_ols_coefficients`          | OLS standardized coefficients            | 
-| `fig5_model_comparison`          | Model performance comparison             |
-| `fig6_actual_vs_predicted`       | Actual vs Predicted (Random Forest)      |
-| `fig7_feature_importance`        | Random Forest Feature Importance         |
+| File                              | Description                                      |
+|-----------------------------------|--------------------------------------------------|
+| `Main.ipynb`                      | Main Jupyter Notebook (updated name)             |
+| `2018 County Health Rankings Data`| Original Excel dataset                           |
+| `environment`                     | Conda environment files                          |
+| `fig1_target_distribution.png`    | Target variable distribution                     |
+| `fig2_correlations.png`           | Feature correlations                             |
+| `fig3_heatmap.png`                | Correlation heatmap                              |
+| `fig4_ols_coefficients.png`       | OLS regression coefficients                      |
+| `fig5_model_comparison.png`       | Model performance comparison                     |
+| `fig6_actual_vs_predicted.png`    | Actual vs Predicted plot                         |
+| `fig7_feature_importance.png`     | Random Forest feature importance                 |
 
 ---
 
@@ -71,37 +57,28 @@ After preprocessing and modeling 2,961 counties with 14 socioeconomic, behaviora
 
 ### Model Performance
 
-| Model                    | Test RMSE   | Test R²   | Improvement |
+| Model                    | Test RMSE   | Test R²   | vs OLS      |
 |--------------------------|-------------|-----------|-------------|
 | **Random Forest**        | **1348.4**  | **0.691** | **Best**    |
 | Gradient Boosting        | 1397.3      | 0.668     | -           |
-| Ridge Regression         | 1470.2      | 0.633     | -           |
-| Lasso Regression         | 1473.4      | 0.631     | -           |
+| Ridge                    | 1470.2      | 0.633     | -           |
+| Lasso                    | 1473.4      | 0.631     | -           |
 | OLS Linear Regression    | 1474.5      | 0.631     | Baseline    |
 
-![Model Comparison](figures/fig5_model_comparison.png)
+![Model Performance](figures/fig5_model_comparison.png)
 
 ![Feature Importance](figures/fig7_feature_importance.png)
 
-**Top 3 Most Important Features** (Random Forest):
+**Top Features (Random Forest Importance)**:
 1. **% Children in Poverty** — 44.4%
 2. **% Smokers** — 17.7%
 3. **% Physically Inactive**
 
 ---
 
-## Key Insights
-
-- Child poverty is the dominant driver of premature death rates.
-- Smoking has the strongest direct linear effect.
-- Non-linear models (Random Forest & Gradient Boosting) significantly outperform linear models.
-- Lasso automatically removed `Graduation Rate` and `PCP Rate` due to redundancy.
-
----
-
 ## Setup Instructions
 
-### Using Conda (Recommended)
+### Option 1: Conda (Recommended)
 
 ```bash
 conda env create -f environment.yml
