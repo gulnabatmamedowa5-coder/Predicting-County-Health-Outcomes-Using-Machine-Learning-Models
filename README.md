@@ -31,7 +31,6 @@ The goal was to predict health outcomes accurately and understand which socioeco
 | File                              | Description                                      |
 |-----------------------------------|--------------------------------------------------|
 | `Main.ipynb`                      | Main Jupyter Notebook (updated name)             |
-| `2018 County Health Rankings Data`| Original Excel dataset                           |
 | `environment`                     | Conda environment files                          |
 | `fig1_target_distribution.png`    | Target variable distribution                     |
 | `fig2_correlations.png`           | Feature correlations                             |
